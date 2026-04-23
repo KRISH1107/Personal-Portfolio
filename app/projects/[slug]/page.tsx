@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
@@ -9,6 +10,30 @@ export function generateStaticParams() {
 type ProjectDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: ProjectDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return { title: "Project not found" };
+  }
+
+  const url = `/projects/${project.slug}`;
+  return {
+    title: project.title,
+    description: project.blurb,
+    alternates: { canonical: url },
+    openGraph: {
+      title: project.title,
+      description: project.blurb,
+      url,
+      type: "article",
+    },
+  };
+}
 
 export default async function ProjectDetailPage({
   params,

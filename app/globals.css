@@ -17,10 +17,100 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-handwritten: var(--font-handwritten);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes intro-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-handwrite {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 -0.25em 0 0);
+  }
+}
+
+@keyframes intro-caret-blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-curtain-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes intro-curtain-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes intro-overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.intro-stage-1 {
+  animation: intro-fade-up 500ms ease-out 200ms both;
+}
+
+.intro-stage-handwrite-text {
+  animation:
+    intro-fade-up 200ms ease-out 600ms both,
+    intro-handwrite 1500ms cubic-bezier(0.5, 0, 0.5, 1) 600ms both;
+}
+
+.intro-stage-handwrite-caret {
+  animation:
+    intro-fade-up 200ms ease-out 600ms both,
+    intro-caret-blink 700ms ease-in-out 2100ms 2;
+}
+
+.intro-stage-tagline {
+  animation: intro-fade-up 500ms ease-out 2100ms both;
+}
+
+.intro-curtain-leaving-top {
+  animation: intro-curtain-top 350ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.intro-curtain-leaving-bottom {
+  animation: intro-curtain-bottom 350ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.intro-content-leaving {
+  animation: intro-overlay-fade-out 200ms ease-out forwards;
 }

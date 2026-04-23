@@ -40,6 +40,6 @@ export const projects: Project[] = [
       "The site you're reading right now. Built step-by-step while learning Next.js",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/KRISH1107/Personal-Portfolio",
-    demo: "https://<your-domain>",
+    demo: "https://krishpatel.xyz",
   },
 ];

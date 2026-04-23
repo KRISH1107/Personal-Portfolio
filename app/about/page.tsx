@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Contact from "@/components/Contact";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "A bit about Krish Patel — what I build, what I work with, and how to get in touch.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About",
+    description:
+      "A bit about Krish Patel — what I build, what I work with, and how to get in touch.",
+    url: "/about",
+  },
+};
 
 const skills = [
   "Python",

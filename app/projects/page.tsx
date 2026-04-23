@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/lib/projects";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "A selection of projects I've built — web apps, ML experiments, and computer vision tools.",
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    title: "Projects",
+    description:
+      "A selection of projects I've built — web apps, ML experiments, and computer vision tools.",
+    url: "/projects",
+  },
+};
 
 export default function ProjectsPage() {
   return (
