@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Contact from "@/components/Contact";
 
 const skills = [
   "Python",
@@ -59,6 +60,8 @@ export default function AboutPage() {
           </li>
         ))}
       </ul>
+
+      <Contact />
     </main>
   );
 }
