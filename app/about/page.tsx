@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Contact from "@/components/Contact";
+import AboutHeadshot from "@/components/AboutHeadshot";
 
 export const metadata: Metadata = {
   title: "About",
@@ -28,6 +28,15 @@ const skills = [
 ];
 
 export default function AboutPage() {
+  /**
+   * Remote headshot (must be allowlisted in `next.config.ts` under `images.remotePatterns`).
+   *
+   * Tradeoff: simpler than shipping a binary in git, but depends on a third-party host staying up.
+   */
+  const headshotRemoteSrc =
+    "https://gcdnb.pbrd.co/images/JCzVDyziQT-_.png";
+  const headshotFallbackSrc = "/headshot.jpg";
+
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-20">
       <header className="mb-10 flex flex-col gap-3">
@@ -40,13 +49,10 @@ export default function AboutPage() {
       </header>
 
       <div className="mb-10 flex justify-center sm:justify-start">
-        <Image
-          src="/headshot.jpg"
+        <AboutHeadshot
+          remoteSrc={headshotRemoteSrc}
+          fallbackSrc={headshotFallbackSrc}
           alt="Krish Patel"
-          width={160}
-          height={160}
-          priority
-          className="rounded-full border border-zinc-200 object-cover dark:border-zinc-800"
         />
       </div>
 
