@@ -17,7 +17,7 @@ export const socials: Social[] = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/krish-patel",
+    href: "https://www.linkedin.com/in/krish-patel-bba59b242/",
     handle: "in/krish-patel",
   },
 ];
