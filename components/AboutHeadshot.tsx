@@ -18,7 +18,7 @@ export default function AboutHeadshot({
   const [didFallback, setDidFallback] = useState(false);
 
   return (
-    <div className="relative h-40 w-40 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800 sm:h-44 sm:w-44">
+    <div className="relative h-40 w-40 overflow-hidden rounded-full border border-zinc-200 bg-[rgb(88_104_120)] dark:border-zinc-800 dark:bg-[rgb(70_84_98)] sm:h-44 sm:w-44">
       <Image
         src={activeSrc}
         alt={alt}
@@ -26,7 +26,7 @@ export default function AboutHeadshot({
         sizes="(max-width: 640px) 160px, 176px"
         priority
         unoptimized
-        className="object-cover [object-position:center_18%]"
+        className="object-contain p-2"
         onError={() => {
           if (!didFallback) {
             setDidFallback(true);
