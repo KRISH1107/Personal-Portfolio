@@ -42,16 +42,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             GitHub →
           </a>
         )}
-        {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50"
-          >
-            Live demo →
-          </a>
-        )}
       </div>
     </article>
   );
