@@ -4,6 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
+  { href: "/hobbies", label: "Hobbies" },
   { href: "/about", label: "About" },
 ];
 
@@ -18,7 +19,7 @@ export default function Navbar() {
           Krish Patel
         </Link>
         <div className="flex items-center gap-6">
-          <ul className="flex items-center gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+          <ul className="flex items-center gap-4 text-sm font-medium text-zinc-600 dark:text-zinc-400 sm:gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
