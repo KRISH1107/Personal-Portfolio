@@ -6,6 +6,7 @@ import CountryDetailModal from "@/components/CountryDetailModal";
 import {
   getVisitedCountry,
   isVisited,
+  visitedCountries,
   visitedCountryCount,
   type VisitedCountry,
 } from "@/lib/travel";
@@ -147,6 +148,33 @@ export default function TravelMap() {
             );
           })}
         </svg>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <h3 className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+          Visited countries
+        </h3>
+        <ul className="flex flex-wrap gap-2">
+          {visitedCountries.map((country) => {
+            const isActive = selected?.code === country.code;
+            return (
+              <li key={country.code}>
+                <button
+                  type="button"
+                  onClick={() => onActivate(country.code)}
+                  aria-pressed={isActive}
+                  className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 ${
+                    isActive
+                      ? "border-zinc-900 bg-zinc-900 text-zinc-50 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
+                      : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-50"
+                  }`}
+                >
+                  {country.name}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       {selected ? (
