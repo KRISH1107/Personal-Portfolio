@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "gcdnb.pbrd.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "a.espncdn.com",
+        pathname: "/i/teamlogos/**",
+      },
     ],
   },
 };

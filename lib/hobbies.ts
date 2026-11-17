@@ -2,7 +2,7 @@ export type Hobby = {
   slug: string;
   title: string;
   blurb: string;
-  /** Optional in-page anchor (e.g. "#travel") */
+  /** Optional in-page or route href */
   href?: string;
 };
 
@@ -11,19 +11,14 @@ export const hobbies: Hobby[] = [
     slug: "travel",
     title: "Travel",
     blurb:
-      "Collecting stamps in the passport and stories along the way. Explore the places I've been on the map below.",
-    href: "#travel",
+      "Collecting stamps in the passport and stories along the way. Explore the places I've been on the map.",
+    href: "/hobbies",
   },
   {
-    slug: "basketball",
-    title: "Basketball",
+    slug: "sports",
+    title: "Sports",
     blurb:
-      "Pickup games, form drills, and watching too much NBA. Still chasing a cleaner jumper.",
-  },
-  {
-    slug: "photography",
-    title: "Photography",
-    blurb:
-      "Casual shots from trips and everyday moments — more curiosity than gear obsession.",
+      "Weekly NFL and NBA power rankings — full history, movers, and team trends.",
+    href: "/hobbies/sports",
   },
 ];

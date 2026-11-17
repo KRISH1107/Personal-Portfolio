@@ -6,9 +6,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Cursor Cloud specific instructions
 
-This is a static Next.js 16 (App Router, Turbopack, React 19) portfolio site with no backend, database, or environment variables. Content is sourced from plain modules in `lib/` (`projects.ts`, `socials.ts`, `site.ts`, `hobbies.ts`, `travel.ts`).
+This is a Next.js 16 (App Router, Turbopack, React 19) portfolio site. Content is sourced from modules in `lib/` and JSON under `data/`.
 
-- Dev server: `npm run dev` (Turbopack) serves on `http://localhost:3000`. Routes: `/`, `/about`, `/projects`, `/hobbies`, and dynamic `/projects/[slug]`.
-- Travel map data: edit `lib/travel.ts` (ISO 3166-1 alpha-2 codes, lowercase). Photos: `public/images/travel/<code>/…` referenced as `/images/travel/<code>/…`.
-- Standard scripts live in `package.json`: `dev`, `build`, `start`, `lint`.
-- `npm run lint` currently reports pre-existing `react-hooks/set-state-in-effect` errors in `components/Intro.tsx` and `components/ThemeToggle.tsx`. Treat them as baseline unless explicitly asked to fix them.
+- Dev server: `npm run dev` → `http://localhost:3000`
+- Routes: `/`, `/about`, `/projects`, `/projects/[slug]`, `/hobbies` (Travel), `/hobbies/sports` (power rankings), `/hobbies/sports/admin`
+- Travel data: `lib/travel.ts` + photos in `public/images/travel/<code>/`
+- Sports rankings: persisted in `data/sports/store.json` (not localStorage). Public UI reads this file; admin publish/draft writes to it via server actions.
+- Sports admin password: set `SPORTS_ADMIN_PASSWORD` in the environment. In non-production, if unset, the default is `dev-sports-admin`.
+- Note: On Vercel’s read-only filesystem, admin publishes that write `store.json` will fail unless you publish locally (or via CI) and redeploy. Seeded historical weeks still work on production.
+- Scripts: `dev`, `build`, `start`, `lint`
+- Baseline lint: pre-existing `react-hooks/set-state-in-effect` in `Intro.tsx` and `ThemeToggle.tsx`

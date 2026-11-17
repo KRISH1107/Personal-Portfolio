@@ -9,6 +9,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/`, lastModified: now, priority: 1 },
     { url: `${siteConfig.url}/projects`, lastModified: now, priority: 0.9 },
     { url: `${siteConfig.url}/hobbies`, lastModified: now, priority: 0.8 },
+    {
+      url: `${siteConfig.url}/hobbies/sports`,
+      lastModified: now,
+      priority: 0.75,
+    },
     { url: `${siteConfig.url}/about`, lastModified: now, priority: 0.8 },
   ];
 
